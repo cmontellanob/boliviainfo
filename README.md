@@ -1,0 +1,2 @@
+# boliviainfo
+Información de Bolivia
