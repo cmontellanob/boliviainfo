@@ -47,6 +47,7 @@ if ( is_admin() ) {
 
 // include plugin dependencies: admin and public
 require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/info-bolivia-widget.php'; // incluir widget
 
 
 
@@ -54,8 +55,8 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
 function myplugin_options_default() {
 
 	return array(
-		'custom_url'     => 'https://wordpress.org/',
-		'custom_title'   => esc_html__('Powered by WordPress', 'myplugin'),
+		'custom_url'     => 'https://boliviainfo.org/',
+		'custom_title'   => esc_html__('Informacion Turisticade Bolivia', 'boliviainfo'),
 		'custom_style'   => 'disable',
 		'custom_message' => '<p class="custom-message">'. esc_html__('My custom message', 'myplugin') .'</p>',
 		'custom_footer'  => esc_html__('Special message for users', 'myplugin'),

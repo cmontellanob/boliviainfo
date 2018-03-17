@@ -27,8 +27,18 @@ class Informacion_Bolivia_Widget extends WP_Widget {
 	// output widget content
 	public function widget( $args, $instance ) {
 
-$title = apply_filters( 'widget_title', $instance['title'] );
-
+if (isset($instance['ciudad']))
+   $ciudad=$instance['ciudad'];
+	 else {
+	 	$ciudad="Sucre";
+	 }
+	 if (isset($instance['nronoticias']))
+	    $nronoticias=$instance['nronoticias'];
+	 	 else {
+	 	 	$nronoticias=5;
+	 	 }
+//if ( ! empty( $instance['ciudad'] ) )
+	//	echo $ciudad;
 		// outputs the content of the widget
 		Echo "Informacion de Bolivia"."<br/>";
 		echo date("Y-m-d")."<br/>";
@@ -59,7 +69,7 @@ $title = apply_filters( 'widget_title', $instance['title'] );
 
 		echo "venta:".$venta." x  1U$";
     echo "<hr/>";
-    $ciudad='Tarija';
+   // $ciudad='Tarija';
 		curl_setopt_array($ch, array(
 		    CURLOPT_RETURNTRANSFER => 1,
 		    CURLOPT_URL => 'http://api.openweathermap.org/data/2.5/weather?q='.$ciudad.',bo&appid=d8b17900f6f22b07db5ee898d85257e5&units=metric',
@@ -86,10 +96,10 @@ $title = apply_filters( 'widget_title', $instance['title'] );
 	  $base=substr($informacion,$p+19);
     //echo $base;
     //echo wp_kses_post();
-		$numeronoticias=4;
+		//$numeronoticias=4;
     $i=0;
 		?><ol><?php
-		while ($p>0 and $i<$numeronoticias)
+		while ($p>0 and $i<$nronoticias)
 		{
 
 			$i++;
@@ -112,13 +122,37 @@ $title = apply_filters( 'widget_title', $instance['title'] );
 	public function form( $instance ) {
 
 		// outputs the widget form fields in the Admin Area
-		if ( isset( $instance[ 'title' ] ) ) {
-		$title = $instance[ 'title' ];
-		}
-		else {
-		$title = __( 'New title', 'wpb_widget_domain' );
-		}
-		// Widget admin form
+		if ( isset( $instance[ 'ciudad' ] ) ) {
+	$ciudad = $instance[ 'ciudad' ];
+	}
+	else {
+	$ciudad = __( 'Sucre', 'wpb_widget_domain' );
+	}
+	if ( isset( $instance[ 'nronoticias' ] ) ) {
+$nronoticias = $instance[ 'nronoticias' ];
+}
+else {
+$nronoticias = __( '4', 'wpb_widget_domain' );
+}
+//type="text" value="<?php echo esc_attr( $ciudad );
+	// Widget admin form
+  $ciudades=array('Sucre','La Paz','Cochabamba','Oruro','Potosi','Tarija','Santa Cruz de la Sierra','Trinidad','Cobija');
+	?>
+	<p>
+	<label for="<?php echo $this->get_field_id( 'ciudad' ); ?>"><?php _e( 'Ciudad:' ); ?></label>
+	<select class="widefat" id="<?php echo $this->get_field_id( 'ciudad' ); ?>" name="<?php echo $this->get_field_name( 'ciudad' ); ?>"  />
+ <?php foreach ($ciudades as $localidad)
+ {?>
+	<option <?php if ($localidad==$ciudad) echo 'selected="selected"'; ?>  ><?php echo $localidad  ?></option>
+<?php } ?>
+	</select>
+
+	</p>
+	<p>
+	<label for="<?php echo $this->get_field_id( 'nronoticias' ); ?>"><?php _e( 'Nro noticias visualizar:' ); ?></label>
+	<input class="widefat" id="<?php echo $this->get_field_id( 'nronoticias' ); ?>" name="<?php echo $this->get_field_name( 'nronoticias' ); ?>" type="text" value="<?php echo esc_attr( $nronoticias ); ?>" />
+	</p>
+	<?php
 	}
 
 	// process widget options
@@ -126,7 +160,8 @@ $title = apply_filters( 'widget_title', $instance['title'] );
 
 		// processes the widget options
 		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['ciudad'] = ( ! empty( $new_instance['ciudad'] ) ) ? strip_tags( $new_instance['ciudad'] ) : '';
+		$instance['nronoticias'] = ( ! empty( $new_instance['nronoticias'] ) ) ? strip_tags( $new_instance['nronoticias'] ) : '';
 		return $instance;
 	}
 
