@@ -27,6 +27,8 @@ class Informacion_Bolivia_Widget extends WP_Widget {
 	// output widget content
 	public function widget( $args, $instance ) {
 
+$title = apply_filters( 'widget_title', $instance['title'] );
+
 		// outputs the content of the widget
 		Echo "Informacion de Bolivia"."<br/>";
 		echo date("Y-m-d")."<br/>";
@@ -56,25 +58,76 @@ class Informacion_Bolivia_Widget extends WP_Widget {
 		echo "compra:".$compra." x 1 U$<br/>";
 
 		echo "venta:".$venta." x  1U$";
+    echo "<hr/>";
+    $ciudad='Tarija';
+		curl_setopt_array($ch, array(
+		    CURLOPT_RETURNTRANSFER => 1,
+		    CURLOPT_URL => 'http://api.openweathermap.org/data/2.5/weather?q='.$ciudad.',bo&appid=d8b17900f6f22b07db5ee898d85257e5&units=metric',
+		    CURLOPT_USERAGENT => 'cURL Request'
+		));
 
+		$informacion = json_decode(curl_exec ($ch));
+
+		echo $informacion->name.": Temperatura: ";
+		echo $informacion->main->temp."C";
+
+		echo "<hr/>";
+		echo '<h3 "widget-title">Noticias Abi</h3>';
+		curl_setopt_array($ch, array(
+		    CURLOPT_RETURNTRANSFER => 1,
+		    CURLOPT_URL => 'http://www1.abi.bo/abi/paleta.php?nocache=.65465465&i=0&j=0',
+		    CURLOPT_USERAGENT => 'cURL Request'
+		));
+		$informacion = curl_exec ($ch);
+
+
+		$buscar='onclick=noticias(1,';
+		$p= strpos($informacion,$buscar);
+	  $base=substr($informacion,$p+19);
+    //echo $base;
     //echo wp_kses_post();
+		$numeronoticias=4;
+    $i=0;
+		?><ol><?php
+		while ($p>0 and $i<$numeronoticias)
+		{
+
+			$i++;
+      $p2=strpos($base,');>');
+			$basenoticia=substr($base,$p2+2);
+			$noticia= substr($basenoticia,1,strpos($basenoticia,'</div>')-1);
+			$idnoticia= substr($base,1,$p2-2);
+			echo '<li class="cat-item cat-item-1"><a href ="http://www1.abi.bo/abi/noticias.php?nocache=0.638743808147475&i=1&j='.$idnoticia.'" target="_blank">';
+			echo $noticia."</a></li>";
+			$p= strpos($base,$buscar);
+			$base=substr($base,$p+19);
+		}
+
 		curl_close ($ch);
 		//print_r($informacion);
-		
+
 	}
 
 	// output widget form fields
 	public function form( $instance ) {
 
 		// outputs the widget form fields in the Admin Area
-
+		if ( isset( $instance[ 'title' ] ) ) {
+		$title = $instance[ 'title' ];
+		}
+		else {
+		$title = __( 'New title', 'wpb_widget_domain' );
+		}
+		// Widget admin form
 	}
 
 	// process widget options
 	public function update( $new_instance, $old_instance ) {
 
 		// processes the widget options
-
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		return $instance;
 	}
 
 }
