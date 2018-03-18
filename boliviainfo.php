@@ -48,6 +48,7 @@ if ( is_admin() ) {
 // include plugin dependencies: admin and public
 require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/info-bolivia-widget.php'; // incluir widget
+require_once plugin_dir_path( __FILE__ ) . 'includes/ver-tambien.php'; // incluir widget
 
 
 

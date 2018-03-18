@@ -37,9 +37,11 @@ if (isset($instance['ciudad']))
 	 	 else {
 	 	 	$nronoticias=5;
 	 	 }
-//if ( ! empty( $instance['ciudad'] ) )
-	//	echo $ciudad;
-		// outputs the content of the widget
+if ( isset( $instance['mostrarmaxmin'] ) )
+		 $mostrarmaxmin = $instance['mostrarmaxmin'];
+   else {
+   	$mostrarmaxmin ="no";
+   }
 		Echo "Informacion de Bolivia"."<br/>";
 		echo date("Y-m-d")."<br/>";
 		$ch = curl_init();
@@ -80,6 +82,12 @@ if (isset($instance['ciudad']))
 
 		echo $informacion->name.": Temperatura: ";
 		echo $informacion->main->temp."C";
+    if ($mostrarmaxmin=='si')
+		{
+			echo "<br/>Max:". $informacion->main->temp_min."C Min:". $informacion->main->temp_max."C";
+		}
+
+
 
 		echo "<hr/>";
 		echo '<h3 "widget-title">Noticias Abi</h3>';
@@ -134,7 +142,14 @@ $nronoticias = $instance[ 'nronoticias' ];
 else {
 $nronoticias = __( '4', 'wpb_widget_domain' );
 }
-//type="text" value="<?php echo esc_attr( $ciudad );
+if ( isset( $instance[ 'mostrarmaxmin' ] ) ) {
+$mostrarmaxmin = $instance[ 'mostrarmaxmin' ];
+}
+else {
+$mostrarmaxmin = 'no';
+}
+
+
 	// Widget admin form
   $ciudades=array('Sucre','La Paz','Cochabamba','Oruro','Potosi','Tarija','Santa Cruz de la Sierra','Trinidad','Cobija');
 	?>
@@ -152,6 +167,12 @@ $nronoticias = __( '4', 'wpb_widget_domain' );
 	<label for="<?php echo $this->get_field_id( 'nronoticias' ); ?>"><?php _e( 'Nro noticias visualizar:' ); ?></label>
 	<input class="widefat" id="<?php echo $this->get_field_id( 'nronoticias' ); ?>" name="<?php echo $this->get_field_name( 'nronoticias' ); ?>" type="text" value="<?php echo esc_attr( $nronoticias ); ?>" />
 	</p>
+	<p>
+	<label for="<?php echo $this->get_field_id( 'mostrarmaxmin' ); ?>"><?php _e( 'Mostrar Temperaturas Max Min' ); ?></label>
+	<input class="widefat" id="<?php echo $this->get_field_id( 'mostrarmaxmin' ); ?>" name="<?php echo $this->get_field_name( 'mostrarmaxmin' ); ?>" type="checkbox" <?php if ($mostrarmaxmin=='si') echo "checked"; ?>" value="si"  />
+	</p>
+
+
 	<?php
 	}
 
@@ -162,6 +183,8 @@ $nronoticias = __( '4', 'wpb_widget_domain' );
 		$instance = array();
 		$instance['ciudad'] = ( ! empty( $new_instance['ciudad'] ) ) ? strip_tags( $new_instance['ciudad'] ) : '';
 		$instance['nronoticias'] = ( ! empty( $new_instance['nronoticias'] ) ) ? strip_tags( $new_instance['nronoticias'] ) : '';
+		$instance['mostrarmaxmin'] = ( ! empty( $new_instance['mostrarmaxmin'] ) ) ? strip_tags( $new_instance['mostrarmaxmin'] ) : '';
+
 		return $instance;
 	}
 
