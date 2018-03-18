@@ -7,25 +7,38 @@
             return $content;
         }else
         {
-            $departamentos=array('Chuquisaca','La Paz','Cochabamba','Oruro','Potosi','Santa Cruz','Beni','Pando');
+          // obtener elpost actual
+          $current_post_id = get_the_ID();
 
-            foreach ($departamentos as $departamento)
-            {
+          //opbetenrla categoria del post  Get the current post's category (first one if there's more than one).
+          $current_post_cats = get_the_category();
+          $current_post_first_cat_id = $current_post_cats[ 0 ]->term_id;
+
+          $args = array(
+
+            'cat' => $current_post_first_cat_id,
+
+            'post__not_in' => array( $current_post_id )
+          );
+           print_r($args);
+
+// Instantiate new query instance.
+$my_query = new WP_Query( $args );
 
                $content=str_replace ($departamento ,'tendria que ser enlace',$content    );
 
-            }
+           
 
 
 // buscar post relacionados que pertenecen ala misma categoria
             $categorias=get_the_terms(get_the_ID(),"category");
-
+            print_r($categorias);
 
             foreach($categorias as $categoria)
             {
                 $arreglo[]=$categoria->term_id;
             }
-            
+
             $loop=new WP_Query
             (
                 array

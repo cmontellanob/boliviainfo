@@ -1,5 +1,8 @@
 <?php
 /*
+@link         https://github.com/cmontellanob/boliviainfo
+@since        1.0.0
+@package      Bolivia_info
 Plugin Name:  BoliviaInfo
 Description:  Plug ing que permite mostrar informacion de Bolivia, como el clima, tipo de cambio, noticas mas importante
 Plugin URI:   https://boliviainfo.com
@@ -49,6 +52,8 @@ if ( is_admin() ) {
 require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/info-bolivia-widget.php'; // incluir widget
 require_once plugin_dir_path( __FILE__ ) . 'includes/ver-tambien.php'; // incluir widget
+require_once plugin_dir_path( __FILE__ ) . 'includes/post-type.php'; // incluir widget
+require_once plugin_dir_path( __FILE__ ) . 'includes/meta-box-recetas.php'; // incluir widget
 
 
 
