@@ -4,71 +4,48 @@
 
 // disable direct file access
 if ( ! defined( 'ABSPATH' ) ) {
-	
+
 	exit;
-	
+
 }
 
+class Info_Bolivia_Admin
+{
 
+function __construct(){
+	add_action( 'admin_menu', array( $this, 'infobolivia_add_sublevel_menu' ) );
+	add_action( 'admin_menu', array( $this, 'infobolivia_add_toplevel_menu' ) );
 
+}
 // add sub-level administrative menu
-function myplugin_add_sublevel_menu() {
-	
-	/*
-	
-	add_submenu_page(
-		string   $parent_slug,
-		string   $page_title,
-		string   $menu_title,
-		string   $capability,
-		string   $menu_slug, 
-		callable $function = ''
-	);
-	
-	*/
-	
+function infobolivia_add_sublevel_menu() {
+
 	add_submenu_page(
 		'options-general.php',
-		esc_html__('MyPlugin Settings', 'myplugin'),
+		esc_html__('infobolivia Opciones', 'infobolivia'),
 		esc_html__('MyPlugin', 'myplugin'),
 		'manage_options',
-		'myplugin',
+		'infobolivia',
 		'myplugin_display_settings_page'
 	);
-	
-}
-//add_action( 'admin_menu', 'myplugin_add_sublevel_menu' );
 
+}
 
 
 // add top-level administrative menu
-function myplugin_add_toplevel_menu() {
-	
-	/* 
-	
+function infobolivia_add_toplevel_menu() {
+
 	add_menu_page(
-		string   $page_title, 
-		string   $menu_title, 
-		string   $capability, 
-		string   $menu_slug, 
-		callable $function = '', 
-		string   $icon_url = '', 
-		int      $position = null 
-	)
-	
-	*/
-	
-	add_menu_page(
-		esc_html__('MyPlugin Settings', 'myplugin'),
-		esc_html__('MyPlugin', 'myplugin'),
+		esc_html__('InfoBolivia Settings', 'BoliviaInfo'),
+		esc_html__('BoliviaInfo', 'boliviainfo'),
 		'manage_options',
-		'myplugin',
+		'info-bolivia',
 		'myplugin_display_settings_page',
 		'dashicons-admin-generic',
 		null
 	);
-	
+
 }
-add_action( 'admin_menu', 'myplugin_add_toplevel_menu' );
 
-
+}
+ new Info_Bolivia_Admin;

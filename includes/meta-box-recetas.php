@@ -99,7 +99,7 @@ class Recetas_Info_Meta_Box {
 
 	public function save_metabox( $post_id, $post ) {
 
-  /*  $is_autosave = wp_is_post_autosave( $post_id );
+ /*  $is_autosave = wp_is_post_autosave( $post_id );
   	$is_revision = wp_is_post_revision( $post_id );
 
   	$is_valid_nonce = false;
@@ -115,8 +115,8 @@ class Recetas_Info_Meta_Box {
   	}
 
   	if ( $is_autosave || $is_revision || !$is_valid_nonce ) return;
-
 */
+
     $ingredientes = get_post_meta( $post->ID, 'ingredientes', true );
     $preparacion = get_post_meta( $post->ID, 'preparacion', true );
     $es_picante = get_post_meta( $post->ID, 'es_picante', true );
