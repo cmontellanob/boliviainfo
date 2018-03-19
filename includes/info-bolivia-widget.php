@@ -17,7 +17,7 @@ class Informacion_Bolivia_Widget extends WP_Widget {
 
 		$options = array(
 			'classname' => 'informacion_bolivia_widget',
-			'description' => 'Añadeinformacion del plug in info bolivia referente a Bolivia  ',
+			'description' => 'Añade informacion del plug in info bolivia referente a Bolivia  ',
 		);
 
 		parent::__construct( 'informacion-bolivia-widget', ' Informacion Bolivia', $options );
@@ -42,7 +42,7 @@ if ( isset( $instance['mostrarmaxmin'] ) )
    else {
    	$mostrarmaxmin ="no";
    }
-		Echo "Informacion de Bolivia"."<br/>";
+		echo esc_html__("Informacion de Bolivia")."<br/>";
 		echo date("Y-m-d")."<br/>";
 		$ch = curl_init();
 		curl_setopt_array($ch, array(

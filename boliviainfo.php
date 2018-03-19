@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // load text domain
 function boliviainfo_load_textdomain() {
 
-	load_plugin_textdomain( 'myplugin', false, plugin_dir_path( __FILE__ ) . 'languages/' );
+	load_plugin_textdomain( 'boliviainfo', false, plugin_dir_path( __FILE__ ) . 'languages/' );
 
 }
 add_action( 'plugins_loaded', 'boliviainfo_load_textdomain' );

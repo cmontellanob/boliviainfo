@@ -92,6 +92,7 @@ class Recetas_Info_Meta_Box {
     echo '      </textarea>';
     echo '		</td>';
 		echo '	</tr>';
+    wp_nonce_field( 'boliviainfo_form_action', 'boliviainfo_meta_box_nonce', false ); 
 
 		echo '</table>';
 
