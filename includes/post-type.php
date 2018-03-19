@@ -10,7 +10,7 @@ function boliviainfo_add_receta_post_type() {
 		'archives'              => __( 'Item Archives', 'text_domain' ),
 		'attributes'            => __( 'Item Attributes', 'text_domain' ),
 		'parent_item_colon'     => __( 'Receta Padre:', 'text_domain' ),
-		'all_items'             => __( 'Toas las Recetas', 'text_domain' ),
+		'all_items'             => __( 'Todas las Recetas', 'text_domain' ),
 		'add_new_item'          => __( 'Añadir Nueva  Receta', 'text_domain' ),
 		'add_new'               => __( 'Nueva Receta', 'text_domain' ),
 		'new_item'              => __( 'Nuevo Item', 'text_domain' ),
@@ -33,8 +33,8 @@ function boliviainfo_add_receta_post_type() {
 	);
 
 	$args = array(
-		'label'                 => __( 'receta', 'text_domain' ),
-		'description'           => __( 'REcetas information pages.', 'text_domain' ),
+		'label'                 => __( 'Recetas', 'text_domain' ),
+		'description'           => __( 'Recetas information pages.', 'text_domain' ),
 		'labels'             => $labels,
 		'public'             => true,
 		'publicly_queryable' => true,
@@ -47,10 +47,10 @@ function boliviainfo_add_receta_post_type() {
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => null,
-		'supports'              => array( 'title', 'editor', 'thumbnail', 'comments', 'excerpt','custom-fields' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		);
 
-	register_post_type( 'receta', $args );
+	register_post_type( 'recetas', $args );
 
 }
 add_action( 'init', 'boliviainfo_add_receta_post_type' );
