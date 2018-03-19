@@ -20,7 +20,7 @@
 
             'post__not_in' => array( $current_post_id )
           );
-           print_r($args);
+        //   print_r($args);
 
 // Instantiate new query instance.
 $taxonomy = 'category';
@@ -46,18 +46,18 @@ if ( ! empty( $post_terms ) && ! is_wp_error( $post_terms ) ) {
     $terms = rtrim( trim( str_replace( '<br />',  $separator, $terms ) ), $separator );
 
     // Display post categories.
-    echo  $terms;
+   // echo  $terms;
     ///
 $my_query = new WP_Query( $args );
 
-               $content=str_replace ($departamento ,'tendria que ser enlace',$content    );
+//               $content=str_replace ($departamento ,'tendria que ser enlace',$content    );
 
 
 
 
 // buscar post relacionados que pertenecen ala misma categoria
             $categorias=get_the_terms(get_the_ID(),"category");
-            print_r($categorias);
+          //  print_r($categorias);
 
             foreach($categorias as $categoria)
             {
