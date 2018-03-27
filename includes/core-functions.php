@@ -186,7 +186,7 @@ if(!term_exists('Chuquisaca')) {
 add_action( 'plugins_loaded', 'insert_categories' );
 
 // Create post object
-$my_post = array(
+/*$my_post = array(
   'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
   'post_content'  => $_POST['post_content'],
   'post_status'   => 'publish',
@@ -196,3 +196,4 @@ $my_post = array(
 
 // Insert the post into the database
 wp_insert_post( $my_post );
+*/
