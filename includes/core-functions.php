@@ -1,4 +1,4 @@
-<?php // MyPlugin - Core Functionality
+<?php // infobolivia - Core Functionality
 
 
 
@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
+
+// añadiendo estilos y js propios del plug in
 add_action('init', 'set_styles_scripts');
 function set_styles_scripts() {
     wp_register_style( 'boliviainfo',  plugins_url('../public/css/boliviainfo.css',__FILE__ ) );
@@ -17,111 +19,37 @@ function set_styles_scripts() {
 		wp_enqueue_script('boliviainfo');
 }
 
+function get_cotizacion(&$compra,&$venta)
+{
+	$ch = curl_init();
+	curl_setopt_array($ch, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'https://www.bcb.gob.bo/librerias/indicadores/dolar/bolsin.php',
+			CURLOPT_USERAGENT => 'cURL Request'
+	));
 
-// custom login logo url
-function myplugin_custom_login_url( $url ) {
+	$informacion = curl_exec ($ch);
+	$buscar= 'vigente desde el';
+	$p= strpos($informacion,$buscar);
+	$tabla=substr($informacion,$p+17);
+	$buscar= '<strong>Bs</strong>';
+	$p= strpos($tabla,$buscar);
 
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
+	$tabla=substr($tabla,$p+18);
+	$compra= substr($tabla,1,strpos($tabla,' por')-2);
+	$p= strpos($tabla,$buscar);
+	$tabla=substr($tabla,$p+17);
 
-	if ( isset( $options['custom_url'] ) && ! empty( $options['custom_url'] ) ) {
-
-		$url = esc_url( $options['custom_url'] );
-
-	}
-
-	return $url;
-
+	$venta= substr($tabla,2,strpos($tabla,' por')-2);
+	curl_close ($ch);
 }
-//add_filter( 'login_headerurl', 'myplugin_custom_login_url' );
-
-
-
-// custom login logo title
-function myplugin_custom_login_title( $title ) {
-
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-
-	if ( isset( $options['custom_title'] ) && ! empty( $options['custom_title'] ) ) {
-
-		$title = esc_attr( $options['custom_title'] );
-
-	}
-
-	return $title;
-
-}
-//add_filter( 'login_headertitle', 'myplugin_custom_login_title' );
-
-
-
-// custom login styles
-function myplugin_custom_login_styles() {
-
-	$styles = false;
-
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-
-	if ( isset( $options['custom_style'] ) && ! empty( $options['custom_style'] ) ) {
-
-		$styles = sanitize_text_field( $options['custom_style'] );
-
-	}
-
-	if ( 'enable' === $styles ) {
-
-		/*
-
-		wp_enqueue_style(
-			string           $handle,
-			string           $src = '',
-			array            $deps = array(),
-			string|bool|null $ver = false,
-			string           $media = 'all'
-		)
-
-		wp_enqueue_script(
-			string           $handle,
-			string           $src = '',
-			array            $deps = array(),
-			string|bool|null $ver = false,
-			bool             $in_footer = false
-		)
-
-		*/
-
-		wp_enqueue_style( 'myplugin', plugin_dir_url( dirname( __FILE__ ) ) . 'public/css/myplugin-login.css', array(), null, 'screen' );
-
-		wp_enqueue_script( 'myplugin', plugin_dir_url( dirname( __FILE__ ) ) . 'public/js/myplugin-login.js', array(), null, true );
-
-	}
-
-}
-//add_action( 'login_enqueue_scripts', 'myplugin_custom_login_styles' );
-
-
-
-// custom login message
-function myplugin_custom_login_message( $message ) {
-
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-
-	if ( isset( $options['custom_message'] ) && ! empty( $options['custom_message'] ) ) {
-
-		$message = wp_kses_post( $options['custom_message'] ) . $message;
-
-	}
-
-	return $message;
-
-}
-//add_filter( 'login_message', 'myplugin_custom_login_message' );
 
 
 
 // custom admin footer
-function myplugin_custom_admin_footer( $message ) {
+function infobolivia_custom_admin_footer( $message ) {
 
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
+	$options = get_option( 'infobolivia_options', infobolivia_options_default() );
 
 	if ( isset( $options['custom_footer'] ) && ! empty( $options['custom_footer'] ) ) {
 
@@ -132,16 +60,16 @@ function myplugin_custom_admin_footer( $message ) {
 	return $message;
 
 }
-//add_filter( 'admin_footer_text', 'myplugin_custom_admin_footer' );
+add_filter( 'admin_footer_text', 'infobolivia_custom_admin_footer' );
 
 
 
 // custom toolbar items
-function myplugin_custom_admin_toolbar() {
+function infobolivia_custom_admin_toolbar() {
 
 	$toolbar = false;
 
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
+	$options = get_option( 'infobolivia_options', infobolivia_options_default() );
 
 	if ( isset( $options['custom_toolbar'] ) && ! empty( $options['custom_toolbar'] ) ) {
 
@@ -159,29 +87,9 @@ function myplugin_custom_admin_toolbar() {
 	}
 
 }
-//add_action( 'wp_before_admin_bar_render', 'myplugin_custom_admin_toolbar', 999 );
+add_action( 'wp_before_admin_bar_render', 'infobolivia_custom_admin_toolbar', 999 );
 
 
-
-// custom admin color scheme
-function myplugin_custom_admin_scheme( $user_id ) {
-
-	$scheme = 'default';
-
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-
-	if ( isset( $options['custom_scheme'] ) && ! empty( $options['custom_scheme'] ) ) {
-
-		$scheme = sanitize_text_field( $options['custom_scheme'] );
-
-	}
-
-	$args = array( 'ID' => $user_id, 'admin_color' => $scheme );
-
-	wp_update_user( $args );
-
-}
-//add_action( 'user_register', 'myplugin_custom_admin_scheme' );
 // añadir las categorias para BOlivia
 function insert_categories() {
 if(!term_exists('Chuquisaca')) {
@@ -276,3 +184,15 @@ if(!term_exists('Chuquisaca')) {
 								  }
  }
 add_action( 'plugins_loaded', 'insert_categories' );
+
+// Create post object
+$my_post = array(
+  'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
+  'post_content'  => $_POST['post_content'],
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_category' => array( 8,39 )
+);
+
+// Insert the post into the database
+wp_insert_post( $my_post );

@@ -51,6 +51,7 @@ if ( is_admin() ) {
 // include plugin dependencies: admin and public
 require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/info-bolivia-widget.php'; // incluir widget
+require_once plugin_dir_path( __FILE__ ) . 'includes/recipts-widget.php'; // incluir widget
 require_once plugin_dir_path( __FILE__ ) . 'includes/mostrar-post.php'; // mostrar post
 require_once plugin_dir_path( __FILE__ ) . 'includes/post-type.php'; // incluir widget
 require_once plugin_dir_path( __FILE__ ) . 'includes/meta-box-recetas.php'; // incluir widget
@@ -58,16 +59,12 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/meta-box-recetas.php'; // i
 
 
 // default plugin options
-function myplugin_options_default() {
+function infobolivia_options_default() {
 
 	return array(
-		'custom_url'     => 'https://boliviainfo.org/',
-		'custom_title'   => esc_html__('Turist information of Bolivia', 'BoliviaInfo'),
-		'custom_style'   => 'disable',
-		'custom_message' => '<p class="custom-message">'. esc_html__('Boliva information', 'BoliviaInfo') .'</p>',
 		'custom_footer'  => esc_html__('Special message for users', 'BoliviaInfo'),
 		'custom_toolbar' => false,
-		'custom_scheme'  => 'default',
+		'custom_copy' => 5,
 	);
 
 }

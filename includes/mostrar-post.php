@@ -7,7 +7,7 @@ class Mostrar_Post
 function ver_tambien($content)
 {
   // obtener elpost actual
-echo plugin_dir_path( __FILE__ ) . 'languages/';
+
   $current_post_id = get_the_ID();
   $categories = get_the_category();
 
@@ -151,7 +151,11 @@ function mostrar($content)
  {
  if(!is_singular('post'))
    {
-    return $content;
+     $pos = strpos($content,'gallery ids');
+     if ($pos>0)
+        $this->mostrar_galeria($content);
+     else
+        return $content;
    }else
    {
     $pos = strpos($content,'gallery ids');

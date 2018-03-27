@@ -1,4 +1,4 @@
-<?php // MyPlugin - Admin Menu
+<?php // infobolivia - Admin Menu
 
 
 
@@ -13,21 +13,8 @@ class Info_Bolivia_Admin
 {
 
 function __construct(){
-	add_action( 'admin_menu', array( $this, 'infobolivia_add_sublevel_menu' ) );
+
 	add_action( 'admin_menu', array( $this, 'infobolivia_add_toplevel_menu' ) );
-
-}
-// add sub-level administrative menu
-function infobolivia_add_sublevel_menu() {
-
-	add_submenu_page(
-		'options-general.php',
-		esc_html__('infobolivia Settings', 'BoliviaInfo'),
-		esc_html__('BoliviaInfo',  'BoliviaInfo'),
-		'manage_options',
-		'infobolivia',
-		'myplugin_display_settings_page'
-	);
 
 }
 
@@ -40,7 +27,7 @@ function infobolivia_add_toplevel_menu() {
 		esc_html__('BoliviaInfo', 'boliviainfo'),
 		'manage_options',
 		'info-bolivia',
-		'myplugin_display_settings_page',
+		'boliviainfo_settings_page',
 		'dashicons-admin-generic',
 		null
 	);

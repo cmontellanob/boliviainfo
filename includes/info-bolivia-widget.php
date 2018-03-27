@@ -35,33 +35,14 @@ if ( isset( $instance['mostrarmaxmin'] ) )
    }
 		echo esc_html__("Bolivia Information","BoliviaInfo")."<br/>";
 		echo date("Y-m-d")."<br/>";
-		$ch = curl_init();
-		curl_setopt_array($ch, array(
-		    CURLOPT_RETURNTRANSFER => 1,
-		    CURLOPT_URL => 'https://www.bcb.gob.bo/librerias/indicadores/dolar/bolsin.php',
-		    CURLOPT_USERAGENT => 'cURL Request'
-		));
 
-		$informacion = curl_exec ($ch);
-		$buscar= 'vigente desde el';
-    $p= strpos($informacion,$buscar);
-		$tabla=substr($informacion,$p+17);
-		$buscar= '<strong>Bs</strong>';
-		$p= strpos($tabla,$buscar);
-
-		$tabla=substr($tabla,$p+18);
-
-
-
-		$compra= substr($tabla,1,strpos($tabla,' por')-2);
-    $p= strpos($tabla,$buscar);
-		$tabla=substr($tabla,$p+17);
-
-		$venta= substr($tabla,2,strpos($tabla,' por')-2);
+		get_cotizacion($compra,$venta);
 		echo esc_html__("buy:","BoliviaInfo").$compra." x 1 U$<br/>";
 
 		echo esc_html__("sell:","BoliviaInfo").$venta." x  1U$";
     echo "<hr/>";
+
+		$ch = curl_init();
    // $ciudad='Tarija';
 		curl_setopt_array($ch, array(
 		    CURLOPT_RETURNTRANSFER => 1,
@@ -81,6 +62,7 @@ if ( isset( $instance['mostrarmaxmin'] ) )
 
 
 		echo "<hr/>";
+
 		echo '<h3 "widget-title">'.esc_html__('Abi News','BoliviaInfo').'</h3>';
 		curl_setopt_array($ch, array(
 		    CURLOPT_RETURNTRANSFER => 1,
