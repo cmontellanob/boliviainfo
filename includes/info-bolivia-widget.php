@@ -1,13 +1,4 @@
 <?php
-/*
-Plugin Name: Informacion Bolivia
-Description:  widget para contener los datos de bolivia.
-Plugin URI:   https://something.com
-Author:       Carlos David Montellano Barriga
-Version:      1.0
-*/
-
-
 
 // example widget class
 class Informacion_Bolivia_Widget extends WP_Widget {
@@ -17,10 +8,10 @@ class Informacion_Bolivia_Widget extends WP_Widget {
 
 		$options = array(
 			'classname' => 'informacion_bolivia_widget',
-			'description' => 'Añade informacion del plug in info bolivia referente a Bolivia  ',
+			'description' =>__('Add information about the Bolivian country','BoliviaInfo'),
 		);
 
-		parent::__construct( 'informacion-bolivia-widget', ' Informacion Bolivia', $options );
+		parent::__construct( 'informacion-bolivia-widget', __('Bolivian information','Boliviainfo'), $options );
 
 	}
 
@@ -42,7 +33,7 @@ if ( isset( $instance['mostrarmaxmin'] ) )
    else {
    	$mostrarmaxmin ="no";
    }
-		echo esc_html__("Informacion de Bolivia")."<br/>";
+		echo esc_html__("Bolivia Information","BoliviaInfo")."<br/>";
 		echo date("Y-m-d")."<br/>";
 		$ch = curl_init();
 		curl_setopt_array($ch, array(
@@ -67,9 +58,9 @@ if ( isset( $instance['mostrarmaxmin'] ) )
 		$tabla=substr($tabla,$p+17);
 
 		$venta= substr($tabla,2,strpos($tabla,' por')-2);
-		echo "compra:".$compra." x 1 U$<br/>";
+		echo esc_html__("buy:","BoliviaInfo").$compra." x 1 U$<br/>";
 
-		echo "venta:".$venta." x  1U$";
+		echo esc_html__("sell:","BoliviaInfo").$venta." x  1U$";
     echo "<hr/>";
    // $ciudad='Tarija';
 		curl_setopt_array($ch, array(
@@ -80,7 +71,7 @@ if ( isset( $instance['mostrarmaxmin'] ) )
 
 		$informacion = json_decode(curl_exec ($ch));
 
-		echo $informacion->name.": Temperatura: ";
+		echo $informacion->name.esc_html__(": Temperature: ","BoliviaInfo");
 		echo $informacion->main->temp."C";
     if ($mostrarmaxmin=='si')
 		{
@@ -90,7 +81,7 @@ if ( isset( $instance['mostrarmaxmin'] ) )
 
 
 		echo "<hr/>";
-		echo '<h3 "widget-title">Noticias Abi</h3>';
+		echo '<h3 "widget-title">'.esc_html__('Abi News','BoliviaInfo').'</h3>';
 		curl_setopt_array($ch, array(
 		    CURLOPT_RETURNTRANSFER => 1,
 		    CURLOPT_URL => 'http://www1.abi.bo/abi/paleta.php?nocache=.65465465&i=0&j=0',

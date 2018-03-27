@@ -21,9 +21,9 @@ class Recetas_Info_Meta_Box {
 
 		add_meta_box(
 			'receta_info',
-			__( 'Receta Info', 'text_domain' ),
+			__( 'Recipe Information', 'BoliviaInfo' ),
 			array( $this, 'render_metabox' ),
-			'recetas',
+			'recetas',   //este debe coincidir con el post-type
 			'advanced',
 			'default'
 		);
@@ -48,35 +48,35 @@ class Recetas_Info_Meta_Box {
 
 		// Form .
 		echo '<table class="form-table">';
-
+    echo '<div id="Ingredientes" class="tabcontent">';
 		echo '	<tr>';
-		echo '		<th><label for="ingredientes" class="ingredients_label">' . __( 'Ingredientes', 'text_domain' ) . '</label></th>';
+		echo '		<th><label for="ingredientes" class="ingredients_label">' . __( 'Ingredients', 'BoliviaInfo' ) . '</label></th>';
 		echo '		<td>';
-		echo '			<textarea rows="5" cols="100" id="ingredientes" name="ingredientes" class="ingredientes_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '"  ">';
+		echo '			<textarea rows="5" cols="80" id="ingredientes" name="ingredientes" class="ingredientes_field" placeholder="' . esc_attr__( '', 'BoliviaInfo' ) . '"  ">';
     echo esc_attr__( $ingredientes );
     echo '      </textarea>';
     echo '		</td>';
 		echo '	</tr>';
-
+		echo '</div>';
 		echo '	<tr>';
-		echo '		<th><label for="preparacion" class="preparacion_label">' . __( 'Preparacion', 'text_domain' ) . '</label></th>';
+		echo '		<th><label for="preparacion" class="preparacion_label">' . __( 'Preparation', 'BoliviaInfo' ) . '</label></th>';
 		echo '		<td>';
-		echo '			<textarea rows="5" cols="100" id="preparacion" name="preparacion" class="preparacion_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '">';
+		echo '			<textarea rows="5" cols="80" id="preparacion" name="preparacion" class="preparacion_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '">';
     echo esc_attr__( $preparacion );
     echo '      </textarea>';
     echo '		</td>';
 		echo '	</tr>';
 
 		echo '	<tr>';
-		echo '		<th><label for="es_picante" class="es_picante_label">' . __( 'Es Picante', 'text_domain' ) . '</label></th>';
+		echo '		<th><label for="es_picante" class="es_picante_label">' . __( 'It is spicy', 'BoliviaInfo' ) . '</label></th>';
 		echo '		<td>';
-		echo '			<input type="checkbox" id="es_picante" name="es_picante" class="es_picante_field" value="' . $es_picante . '" ' . checked( $es_picante, 'checked', false ) . '> ' . __( '', 'text_domain' );
-		echo '			<span class="description">' . __( 'La receta incluye picante.', 'text_domain' ) . '</span>';
+		echo '			<input type="checkbox" id="es_picante" name="es_picante" class="es_picante_field" value="' . $es_picante . '" ' . checked( $es_picante, 'checked', false ) . '> ' . __( 'It is spicy', 'text_domain' );
+		echo '			<span class="description">' . __( 'The recipe includes spicy.', 'BoliviaInfo' ) . '</span>';
 		echo '		</td>';
 		echo '	</tr>';
 
-    echo '	<tr>';
-		echo '		<th><label for="condimentos" class="condimentos_label">' . __( 'Condimentos', 'text_domain' ) . '</label></th>';
+    echo'	<tr>';
+		echo '		<th><label for="condimentos" class="condimentos_label">' . __( 'Condiments', 'BoliviaInfo' ) . '</label></th>';
 		echo '		<td>';
 		echo '			<textarea rows="5" cols="50" id="condimentos" name="condimentos" class="condimentos_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '"  >';
     echo esc_attr__( $condimentos );
@@ -85,16 +85,16 @@ class Recetas_Info_Meta_Box {
 		echo '	</tr>';
 
 		echo '	<tr>';
-		echo '		<th><label for="acompanantes" class="acompanantes_label">' . __( 'Acompanantes', 'text_domain' ) . '</label></th>';
+		echo '		<th><label for="acompanantes" class="acompanantes_label">' . __( 'Accompaniments', 'text_domain' ) . '</label></th>';
 		echo '		<td>';
 		echo '			<textarea rows="5" cols="50" id="acompanantes" name="acompanantes" class="acompanantes_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '"  >';
     echo esc_attr__( $acompanantes );
     echo '      </textarea>';
     echo '		</td>';
 		echo '	</tr>';
-    wp_nonce_field( 'boliviainfo_form_action', 'boliviainfo_meta_box_nonce', false ); 
+    wp_nonce_field( 'boliviainfo_form_action', 'boliviainfo_meta_box_nonce', false );
 
-		echo '</table>';
+
 
 	}
 

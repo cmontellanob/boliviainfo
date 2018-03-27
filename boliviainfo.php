@@ -4,7 +4,7 @@
 @since        1.0.0
 @package      Bolivia_info
 Plugin Name:  BoliviaInfo
-Description:  Plug ing que permite mostrar informacion de Bolivia, como el clima, tipo de cambio, noticas mas importante
+Description:  Plug ing to permites to show information of Bolivia, as the weather, type of change money bolivian , news more important
 Plugin URI:   https://boliviainfo.com
 Author:       Carlos David Montellano Barriga
 Version:      1.0
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // load text domain
 function boliviainfo_load_textdomain() {
 
-	load_plugin_textdomain( 'boliviainfo', false, plugin_dir_path( __FILE__ ) . 'languages/' );
+	load_plugin_textdomain( 'BoliviaInfo', false,basename( dirname( __FILE__ ) ) . '/languages' );
 
 }
 add_action( 'plugins_loaded', 'boliviainfo_load_textdomain' );
@@ -51,7 +51,7 @@ if ( is_admin() ) {
 // include plugin dependencies: admin and public
 require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/info-bolivia-widget.php'; // incluir widget
-require_once plugin_dir_path( __FILE__ ) . 'includes/ver-tambien.php'; // incluir widget
+require_once plugin_dir_path( __FILE__ ) . 'includes/mostrar-post.php'; // mostrar post
 require_once plugin_dir_path( __FILE__ ) . 'includes/post-type.php'; // incluir widget
 require_once plugin_dir_path( __FILE__ ) . 'includes/meta-box-recetas.php'; // incluir widget
 
@@ -62,10 +62,10 @@ function myplugin_options_default() {
 
 	return array(
 		'custom_url'     => 'https://boliviainfo.org/',
-		'custom_title'   => esc_html__('Informacion Turisticade Bolivia', 'boliviainfo'),
+		'custom_title'   => esc_html__('Turist information of Bolivia', 'BoliviaInfo'),
 		'custom_style'   => 'disable',
-		'custom_message' => '<p class="custom-message">'. esc_html__('My custom message', 'myplugin') .'</p>',
-		'custom_footer'  => esc_html__('Special message for users', 'myplugin'),
+		'custom_message' => '<p class="custom-message">'. esc_html__('Boliva information', 'BoliviaInfo') .'</p>',
+		'custom_footer'  => esc_html__('Special message for users', 'BoliviaInfo'),
 		'custom_toolbar' => false,
 		'custom_scheme'  => 'default',
 	);

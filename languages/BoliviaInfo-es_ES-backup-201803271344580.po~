@@ -1,14 +1,13 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: BoliviaInfo\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-22 03:20+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: 2018-03-27 13:41+0000\n"
+"Last-Translator: admin <carlosmontellano@gmail.com>\n"
+"Language-Team: Spanish (Spain)\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,189 +15,192 @@ msgstr ""
 
 #: boliviainfo.php:65
 msgid "Turist information of Bolivia"
-msgstr ""
+msgstr "Informacion Turistica de Bolivia"
 
 #: boliviainfo.php:67
 msgid "Boliva information"
-msgstr ""
+msgstr "Informacion de Bolivia"
 
 #: boliviainfo.php:68
 msgid "Special message for users"
-msgstr ""
+msgstr "Mensajeespecial para usuarios"
 
 #: admin/admin-menu.php:25
 msgid "infobolivia Settings"
-msgstr ""
+msgstr "Ajustes infobolivia"
 
 #. Name of the plugin
 #: admin/admin-menu.php:26
 msgid "BoliviaInfo"
-msgstr ""
+msgstr "BoliviaInfo"
 
 #: includes/info-bolivia-widget.php:20
 msgid "Add information about the Bolivian country"
-msgstr ""
+msgstr "Añade informacion acerca de bolivia"
 
 #: includes/info-bolivia-widget.php:45
 msgid "Bolivia Information"
-msgstr ""
+msgstr "Informacion de Bolivia"
 
 #: includes/info-bolivia-widget.php:70
 msgid "buy:"
-msgstr ""
+msgstr "compra"
 
 #: includes/info-bolivia-widget.php:72
 msgid "sell:"
-msgstr ""
+msgstr "venta"
 
 #: includes/info-bolivia-widget.php:83
+#, fuzzy
 msgid ": Temperature: "
-msgstr ""
+msgstr "Temperatura"
 
 #: includes/info-bolivia-widget.php:93
 msgid "Abi News"
-msgstr ""
+msgstr "Noticias Abi"
 
 #: includes/meta-box-recetas.php:24
 msgid "Recipe Information"
-msgstr ""
+msgstr "Informacion Receta"
 
 #: includes/meta-box-recetas.php:53
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredientes"
 
 #: includes/meta-box-recetas.php:62
 msgid "Preparation"
-msgstr ""
+msgstr "Preparacion"
 
 #: includes/meta-box-recetas.php:71
 msgid "It is spicy"
-msgstr ""
+msgstr "Es picante"
 
 #: includes/meta-box-recetas.php:74
 msgid "The recipe includes spicy."
-msgstr ""
+msgstr "La receta incluye picante"
 
 #: includes/meta-box-recetas.php:79
 msgid "Condiments"
-msgstr ""
+msgstr "Condimentos"
 
 #: includes/post-type.php:6
 msgctxt "Post Type General Name"
 msgid "Recipes"
-msgstr ""
+msgstr "Recetas"
 
 #: includes/post-type.php:7
 msgctxt "Post Type Recipesular Name"
 msgid "Recipe"
-msgstr ""
+msgstr "Recetas"
 
 #: includes/post-type.php:8 includes/post-type.php:9 includes/post-type.php:36
 msgid "Recipes"
-msgstr ""
+msgstr "Recetas"
 
 #: includes/post-type.php:10
 msgid "Item Archives"
-msgstr ""
+msgstr "Archive Item"
 
 #: includes/post-type.php:11
 msgid "Item Attributes"
-msgstr ""
+msgstr "Atributos Item"
 
 #: includes/post-type.php:12
 msgid "Parent Item:"
-msgstr ""
+msgstr "Item Padre"
 
 #: includes/post-type.php:13
 msgid "All Items"
-msgstr ""
+msgstr "Todos los Items"
 
 #: includes/post-type.php:15
 msgid "Add New"
-msgstr ""
+msgstr "Añadir Items"
 
 #: includes/post-type.php:16
 msgid "New Item"
-msgstr ""
+msgstr "Nuevo Item"
 
 #: includes/post-type.php:17
 msgid "Edit Item"
-msgstr ""
+msgstr "Editar Item"
 
 #: includes/post-type.php:18
 msgid "Update Item"
-msgstr ""
+msgstr "Actualizar Item"
 
 #: includes/post-type.php:19
 msgid "View Item"
-msgstr ""
+msgstr "Ver Item"
 
 #: includes/post-type.php:20
 msgid "View Items"
-msgstr ""
+msgstr "Ver Items"
 
 #: includes/post-type.php:21
 msgid "Search Item"
-msgstr ""
+msgstr "Buscar Item"
 
 #: includes/post-type.php:22
 msgid "Not found"
-msgstr ""
+msgstr "No econtrado"
 
 #: includes/post-type.php:23
 msgid "Not found in Trash"
-msgstr ""
+msgstr "No encontrado en la Papelera"
 
 #: includes/post-type.php:24
 msgid "Featured Image"
-msgstr ""
+msgstr "Caracteristicas de Imagen"
 
 #: includes/post-type.php:25
 msgid "Set featured image"
-msgstr ""
+msgstr "COlocar caracteritica de imagen"
 
 #: includes/post-type.php:26
 msgid "Remove featured image"
-msgstr ""
+msgstr "Remover Caracteristica imagen"
 
 #: includes/post-type.php:27
 msgid "Use as featured image"
-msgstr ""
+msgstr "Usar como caracteristica de imagen"
 
 #: includes/post-type.php:28
 msgid "Insert into item"
-msgstr ""
+msgstr "Insertar un item"
 
 #: includes/post-type.php:29
 msgid "Uploaded to this item"
-msgstr ""
+msgstr "Cargar para este item"
 
 #: includes/post-type.php:30
 msgid "Items list"
-msgstr ""
+msgstr "Lista Items"
 
 #: includes/post-type.php:31
 msgid "Items list navigation"
-msgstr ""
+msgstr "Navegacion ListaItems"
 
 #: includes/post-type.php:32
 msgid "Filter items list"
-msgstr ""
+msgstr "Filtrar lista de items"
 
 #: includes/post-type.php:37
 msgid "Recipes information pages."
-msgstr ""
+msgstr "Pgina Informacion de Recetas"
 
 #. Description of the plugin
 msgid ""
 "Plug ing to permites to show information of Bolivia, as the weather, type of "
 "change money bolivian , news more important"
 msgstr ""
+"Plug in que permite mostrar informacion de Bolivia comosu clima, el tipo de "
+"cambio del boliviano,noticias mas importantes"
 
 #. URI of the plugin
 msgid "https://boliviainfo.com"
-msgstr ""
+msgstr "https://boliviainfo.com"
 
 #. Author of the plugin
 msgid "Carlos David Montellano Barriga"
-msgstr ""
+msgstr "Carlos David Montellano Barriga"

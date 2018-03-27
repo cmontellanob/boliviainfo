@@ -22,8 +22,8 @@ function infobolivia_add_sublevel_menu() {
 
 	add_submenu_page(
 		'options-general.php',
-		esc_html__('infobolivia Opciones', 'infobolivia'),
-		esc_html__('MyPlugin', 'myplugin'),
+		esc_html__('infobolivia Settings', 'BoliviaInfo'),
+		esc_html__('BoliviaInfo',  'BoliviaInfo'),
 		'manage_options',
 		'infobolivia',
 		'myplugin_display_settings_page'
@@ -36,7 +36,7 @@ function infobolivia_add_sublevel_menu() {
 function infobolivia_add_toplevel_menu() {
 
 	add_menu_page(
-		esc_html__('InfoBolivia Settings', 'BoliviaInfo'),
+		esc_html__('InfoBolivia Settings', 'boliviainfo'),
 		esc_html__('BoliviaInfo', 'boliviainfo'),
 		'manage_options',
 		'info-bolivia',
