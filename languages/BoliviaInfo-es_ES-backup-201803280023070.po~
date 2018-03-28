@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: BoliviaInfo\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-28 00:18+0000\n"
-"PO-Revision-Date: 2018-03-28 00:23+0000\n"
+"PO-Revision-Date: 2018-03-28 00:22+0000\n"
 "Last-Translator: admin <carlosmontellano@gmail.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -14,7 +14,6 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/"
 
 #: boliviainfo.php:65
-#, fuzzy
 msgid "Special message for users"
 msgstr "Mensaje especial para usuarios"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BoliviaInfo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 03:20+0000\n"
+"POT-Creation-Date: 2018-03-28 00:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,47 +15,54 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/"
 
 #: boliviainfo.php:65
-msgid "Turist information of Bolivia"
-msgstr ""
-
-#: boliviainfo.php:67
-msgid "Boliva information"
-msgstr ""
-
-#: boliviainfo.php:68
 msgid "Special message for users"
 msgstr ""
 
-#: admin/admin-menu.php:25
-msgid "infobolivia Settings"
+#: admin/settings-callbacks.php:17
+msgid "These settings enable you to customize ."
 msgstr ""
 
-#. Name of the plugin
-#: admin/admin-menu.php:26
-msgid "BoliviaInfo"
+#: admin/settings-page.php:66
+msgid "Congratulations, you are awesome!"
 msgstr ""
 
-#: includes/info-bolivia-widget.php:20
+#: admin/settings-page.php:77
+msgid "Houston, we have a problem."
+msgstr ""
+
+#: admin/settings-register.php:42
+msgid "Copy News "
+msgstr ""
+
+#: admin/settings-register.php:51
+msgid "Custom footer text"
+msgstr ""
+
+#: admin/settings-register.php:60
+msgid "Remove new post and comment links from the Toolbar"
+msgstr ""
+
+#: includes/info-bolivia-widget.php:11
 msgid "Add information about the Bolivian country"
 msgstr ""
 
-#: includes/info-bolivia-widget.php:45
+#: includes/info-bolivia-widget.php:36
 msgid "Bolivia Information"
 msgstr ""
 
-#: includes/info-bolivia-widget.php:70
+#: includes/info-bolivia-widget.php:40
 msgid "buy:"
 msgstr ""
 
-#: includes/info-bolivia-widget.php:72
+#: includes/info-bolivia-widget.php:42
 msgid "sell:"
 msgstr ""
 
-#: includes/info-bolivia-widget.php:83
+#: includes/info-bolivia-widget.php:55
 msgid ": Temperature: "
 msgstr ""
 
-#: includes/info-bolivia-widget.php:93
+#: includes/info-bolivia-widget.php:66
 msgid "Abi News"
 msgstr ""
 
@@ -63,130 +70,147 @@ msgstr ""
 msgid "Recipe Information"
 msgstr ""
 
-#: includes/meta-box-recetas.php:53
+#: includes/meta-box-recetas.php:55
 msgid "Ingredients"
 msgstr ""
 
-#: includes/meta-box-recetas.php:62
+#: includes/meta-box-recetas.php:64
 msgid "Preparation"
 msgstr ""
 
-#: includes/meta-box-recetas.php:71
+#: includes/meta-box-recetas.php:73
 msgid "It is spicy"
 msgstr ""
 
-#: includes/meta-box-recetas.php:74
+#: includes/meta-box-recetas.php:76
 msgid "The recipe includes spicy."
 msgstr ""
 
-#: includes/meta-box-recetas.php:79
+#: includes/meta-box-recetas.php:81
 msgid "Condiments"
 msgstr ""
 
-#: includes/post-type.php:6
+#: includes/mostrar-post.php:72
+msgid "View also"
+msgstr ""
+
+#: includes/post-type.php:9
 msgctxt "Post Type General Name"
 msgid "Recipes"
 msgstr ""
 
-#: includes/post-type.php:7
+#: includes/post-type.php:10
 msgctxt "Post Type Recipesular Name"
 msgid "Recipe"
 msgstr ""
 
-#: includes/post-type.php:8 includes/post-type.php:9 includes/post-type.php:36
+#: includes/post-type.php:11 includes/post-type.php:12
+#: includes/post-type.php:39
 msgid "Recipes"
 msgstr ""
 
-#: includes/post-type.php:10
+#: includes/post-type.php:13
 msgid "Item Archives"
 msgstr ""
 
-#: includes/post-type.php:11
+#: includes/post-type.php:14
 msgid "Item Attributes"
 msgstr ""
 
-#: includes/post-type.php:12
+#: includes/post-type.php:15
 msgid "Parent Item:"
 msgstr ""
 
-#: includes/post-type.php:13
+#: includes/post-type.php:16
 msgid "All Items"
 msgstr ""
 
-#: includes/post-type.php:15
+#: includes/post-type.php:18
 msgid "Add New"
 msgstr ""
 
-#: includes/post-type.php:16
+#: includes/post-type.php:19
 msgid "New Item"
 msgstr ""
 
-#: includes/post-type.php:17
+#: includes/post-type.php:20
 msgid "Edit Item"
 msgstr ""
 
-#: includes/post-type.php:18
+#: includes/post-type.php:21
 msgid "Update Item"
 msgstr ""
 
-#: includes/post-type.php:19
+#: includes/post-type.php:22
 msgid "View Item"
 msgstr ""
 
-#: includes/post-type.php:20
+#: includes/post-type.php:23
 msgid "View Items"
 msgstr ""
 
-#: includes/post-type.php:21
+#: includes/post-type.php:24
 msgid "Search Item"
 msgstr ""
 
-#: includes/post-type.php:22
+#: includes/post-type.php:25
 msgid "Not found"
 msgstr ""
 
-#: includes/post-type.php:23
+#: includes/post-type.php:26
 msgid "Not found in Trash"
 msgstr ""
 
-#: includes/post-type.php:24
+#: includes/post-type.php:27
 msgid "Featured Image"
 msgstr ""
 
-#: includes/post-type.php:25
+#: includes/post-type.php:28
 msgid "Set featured image"
 msgstr ""
 
-#: includes/post-type.php:26
+#: includes/post-type.php:29
 msgid "Remove featured image"
 msgstr ""
 
-#: includes/post-type.php:27
+#: includes/post-type.php:30
 msgid "Use as featured image"
 msgstr ""
 
-#: includes/post-type.php:28
+#: includes/post-type.php:31
 msgid "Insert into item"
 msgstr ""
 
-#: includes/post-type.php:29
+#: includes/post-type.php:32
 msgid "Uploaded to this item"
 msgstr ""
 
-#: includes/post-type.php:30
+#: includes/post-type.php:33
 msgid "Items list"
 msgstr ""
 
-#: includes/post-type.php:31
+#: includes/post-type.php:34
 msgid "Items list navigation"
 msgstr ""
 
-#: includes/post-type.php:32
+#: includes/post-type.php:35
 msgid "Filter items list"
 msgstr ""
 
-#: includes/post-type.php:37
+#: includes/post-type.php:40
 msgid "Recipes information pages."
+msgstr ""
+
+#: includes/recipts-widget.php:11
+msgid "Add ling to recips  about the Bolivian country"
+msgstr ""
+
+#: includes/recipts-widget.php:24
+msgid "Recipts"
+msgstr ""
+
+#. Name of the plugin
+msgid "BoliviaInfo"
 msgstr ""
 
 #. Description of the plugin
